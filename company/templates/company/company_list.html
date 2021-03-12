@@ -1,0 +1,35 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+
+    <body>
+        <div class="box">
+            <img src="{% static 'company/search.png' %}" alt="search image">
+        </div>
+        <div class="box">
+            <form action="{% url 'show-info' %}" method="POST" class="search">
+            {% csrf_token %}
+                <input
+                    name="company-name"
+                    type="text"
+                    placeholder="회사 이름을 입력해주세요"
+                    id="search-box"
+                />
+                <button type="submit" id="search-box">검색</button>
+            </form>
+        </div>
+
+        <div class="box">
+            <ul>
+                {% for company in companys %}
+                <li>{{ company.id }}</li>
+                <li>{{ company.corp_code }}</li>
+                <li>{{ company.corp_name }}</li>
+                ---
+                {% endfor %}
+            </ul>
+        </div>
+    </body>
+</html>

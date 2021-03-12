@@ -1,0 +1,8 @@
+# Django stuff:
+db.sqlite3
+
+# env
+/venv
+
+# downloaded files
+CORPCODE.xml
