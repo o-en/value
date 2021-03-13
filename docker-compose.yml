@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  value:
+    build:
+      context: .
+      dockerfile: dockerfiles/value.dockerfile
+    env_file:
+      - .env
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/home/lookvalue/
+    healthcheck:
+      test: "curl -f http://127.0.0.1:8000/admin"
+      interval: 1m30s
+      timeout: 5s
+      retries: 3
