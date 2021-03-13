@@ -24,10 +24,10 @@
         <div class="box">
             <ul>
                 {% for company in companys %}
-                <li>{{ company.id }}</li>
-                <li>{{ company.corp_code }}</li>
-                <li>{{ company.corp_name }}</li>
-                ---
+                <li>회사 코드: {{ company.corp_code }}</li>
+                <li>회사 이름: {{ company.corp_name }}</li>
+                <li>당기 현금배당금총액(백만원): {{ company.dividend }}</li>
+                <hr/>
                 {% endfor %}
             </ul>
         </div>

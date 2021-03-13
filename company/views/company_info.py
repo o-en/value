@@ -16,5 +16,6 @@ class CompanyInfoListView(APIView):
     
     def post(self, request):
         company_name = request.POST.get('company-name')
-
-        return Response({'companys': CompanyInfo.objects.filter(corp_name__contains=company_name)})
+        companys = CompanyInfo.objects.filter(corp_name__contains=company_name)
+        serializer = CompanyInfoListSerializer(companys, many=True)
+        return Response({'companys': serializer.data})
