@@ -9,7 +9,7 @@
             <img src="{% static 'company/search.png' %}" alt="search image">
         </div>
         <div class="box">
-            <form action="{% url 'show-info' %}" method="POST" class="search">
+            <form action="{% url 'company-info' %}" method="POST" class="search">
             {% csrf_token %}
                 <input
                     name="company-name"
